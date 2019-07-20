@@ -1,5 +1,18 @@
-const SHOP_DATA = [
-  {
+/* Before this 'SHOP_DATA' below was an ARRAY containing Objects, we were than using the 'selectCollection' 
+Selector(from the 'shop.selectors.js' file) to pull out the SPECIFIC items we needed based on the Url parameter.
+So for example if we visited the 'http://localhost:3000/shop/hats' URL we passed that 'hats' into the selector
+and we got back from the WHOLE Collection ONLY the 'hats'. The problem was that inside the 'selectCollection'
+Selector we were using the 'find' JavaScript method to FIND the right items off of the Collection and we know that 
+because THIS 'SHOP_DATA' below was an Array that operation could possibly take a LARGE amount of times if for
+example we have hundreds of collections inside it. This because we know that the 'find' method has to loop through
+EACH element in the Array UNTIL it finds the wanted element SO if for example the element we wanted to find was the 
+LAST in the Array this operation would take a LOT of time. NOW though we switched this 'SHOP_DATA' from an Array to 
+an OBJECTS, so NOW that same 'selectCollection' Selector doesn't need to use the 'find' method anymore and we can
+access the needed data IMMEDIATELY. All of this because  NOW we're using HASH TABLE(Objects in JavaScript) and NOT 
+an Array, we passed from O(n) to O(1). This concept of storing LISTS of elements inside an OBJECT instead of an Array 
+is called 'DATA NORMALIZATION' */
+const SHOP_DATA = {
+  hats: {
     id: 1,
     title: 'Hats',
     routeName: 'hats',
@@ -60,7 +73,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  sneakers: {
     id: 2,
     title: 'Sneakers',
     routeName: 'sneakers',
@@ -115,7 +128,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  jackets: {
     id: 3,
     title: 'Jackets',
     routeName: 'jackets',
@@ -152,7 +165,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  womens: {
     id: 4,
     title: 'Womens',
     routeName: 'womens',
@@ -201,7 +214,7 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  mens: {
     id: 5,
     title: 'Mens',
     routeName: 'mens',
@@ -244,6 +257,6 @@ const SHOP_DATA = [
       }
     ]
   }
-];
+};
 
 export default SHOP_DATA;
