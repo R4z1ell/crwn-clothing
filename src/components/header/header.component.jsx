@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from './../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
@@ -39,12 +42,12 @@ const Header = ({ currentUser, hidden }) => {
   );
 };
 
-/* What we pass as argument of this 'mapStateToProps' Function is the 'state' that refers to the big Object that
-contains ALL our reducers that we have inside the 'root-reducers.js' file, so refers to the Redux STORE. Here below
-we're destructuring NESTED Objects from the 'root-reducer' */
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden
+/* The 'reselect' library offers the 'createStructuredSelector' Function to cut down on boilerplate(so to write
+less code and in a more concise way) and it's used in those Components that are pulling a LARGE number of 
+Selectors(in our case we're only using two selectors, but they could be 5 or 10 or more for example) */
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden
 });
 
 export default connect(mapStateToProps)(Header);

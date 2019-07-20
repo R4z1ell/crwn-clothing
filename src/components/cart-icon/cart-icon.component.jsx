@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
@@ -17,10 +18,8 @@ const CartIcon = ({ toggleCartHidden, itemCount }) => {
   );
 };
 
-/* This 'state' we're passing here below to the 'mapStateToProps' Function refers to the WHOLE Redux State Object
-(what we called 'rootReducer' that we export from the 'root-reduce.js' file) */
-const mapStateToProps = state => ({
-  itemCount: selectCartItemsCount(state)
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount
 });
 
 const mapDispatchToProps = dispatch => ({
