@@ -4,7 +4,14 @@ import logger from 'redux-logger';
 
 import rootReducer from './root-reducer';
 
-const middlewares = [logger];
+const middlewares = [];
+
+/* 'create-react-app' AUTOMATICALLY creates the environment variables 'development', 'production' 
+and 'test' for us */
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger);
+}
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
