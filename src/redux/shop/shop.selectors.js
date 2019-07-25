@@ -9,7 +9,8 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
-  collections => Object.keys(collections).map(key => collections[key])
+  collections =>
+    collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 /* This 'selectCollection' Selector we create here below make use of the CARRYING technique in JavaScript. 
@@ -20,5 +21,5 @@ and returns a new function which takes the third one, and so forth, until all ar
 export const selectCollection = collectionUrlParam =>
   createSelector(
     [selectCollections],
-    collections => collections[collectionUrlParam]
+    collections => (collections ? collections[collectionUrlParam] : null)
   );
