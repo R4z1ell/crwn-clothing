@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import FormInput from './../form-input/form-input.component';
 import CustomButton from './../custom-button/custom-button.component';
 
 import { signUpStart } from '../../redux/user/user.actions';
+import { selectUserError } from '../../redux/user/user.selectors';
 
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
@@ -20,6 +22,20 @@ class SignUp extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    const { userError } = nextProps;
+
+    if (userError) {
+      alert(userError.message);
+      this.setState({
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      });
+    }
+  }
+
   handleSubmit = async event => {
     event.preventDefault();
     const { signUpStart } = this.props;
@@ -30,7 +46,7 @@ class SignUp extends Component {
       return;
     }
 
-    signUpStart({ displayName, email, password });
+    signUpStart({ email, password, displayName });
   };
 
   handleChange = event => {
@@ -86,11 +102,15 @@ class SignUp extends Component {
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  userError: selectUserError
+});
+
 const mapDispatchToProps = dispatch => ({
   signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SignUp);
