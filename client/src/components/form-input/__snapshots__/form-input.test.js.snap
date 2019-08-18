@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput component should render FormInput component 1`] = `
+"<styled.div>
+  <FormInputContainer onChange={[Function: mockConstructor]} value=\\"test@gmail.com\\" autoComplete=\\"off\\" />
+  <FormInputLabel className=\\"shrink\\">
+    email
+  </FormInputLabel>
+</styled.div>"
+`;

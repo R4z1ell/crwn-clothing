@@ -17,7 +17,7 @@ import {
 /* The 'dispatch' we're passing as prop here below is available to us thanks to the 'connect' HOC of 
 'react-redux', so because we only need to dispatch the 'toggleCartHidden' action we choosed to NOT use
 the 'mapDispatchToProps' and instead use the 'dispatch' function DIRECTLY */
-const CartDropdown = ({ cartItems, history, dispatch }) => (
+export const CartDropdown = ({ cartItems, history, dispatch }) => (
   <CartDropdownContainer>
     <CartItemsContainer>
       {cartItems.length ? (

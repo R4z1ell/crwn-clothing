@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShopPage should render ShopPage component 1`] = `
+"<BrowserRouter>
+  <Router history={{...}}>
+    <Provider store={{...}}>
+      <ShopPage match={{...}} fetchCollectionsStart={[Function: mockConstructor]}>
+        <div className=\\"shop-page\\">
+          <Suspense fallback={{...}}>
+            <Route exact={true} path=\\"\\" component={{...}} />
+            <Route path=\\"/:collectionId\\" component={{...}} />
+            <Spinner>
+              <styled.div>
+                <StyledComponent forwardedComponent={{...}} forwardedRef={{...}}>
+                  <div className=\\"sc-bdVaJa itPEQX\\">
+                    <styled.div>
+                      <StyledComponent forwardedComponent={{...}} forwardedRef={{...}}>
+                        <div className=\\"sc-bwzfXH fyrCQB\\" />
+                      </StyledComponent>
+                    </styled.div>
+                  </div>
+                </StyledComponent>
+              </styled.div>
+            </Spinner>
+          </Suspense>
+        </div>
+      </ShopPage>
+    </Provider>
+  </Router>
+</BrowserRouter>"
+`;

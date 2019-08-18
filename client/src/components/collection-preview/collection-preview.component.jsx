@@ -12,7 +12,13 @@ import {
 /* The 'routeName' we're destructuring below comes from the Elements we've inside the 'collections' 
 portion of the 'shop' REDUCER, so this 'routeName' is equal to 'hats' or 'sneakers' or 'jackets' or
 'womens' or 'mens' pretty much */
-const CollectionPreview = ({ title, items, history, match, routeName }) => (
+export const CollectionPreview = ({
+  title,
+  items,
+  history,
+  match,
+  routeName
+}) => (
   <CollectionPreviewContainer>
     <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>
       {title.toUpperCase()}

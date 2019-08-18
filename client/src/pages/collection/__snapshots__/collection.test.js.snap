@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionPage should render the CollectionPage component 1`] = `
+"<styled.div>
+  <styled.h2>
+    Test
+  </styled.h2>
+  <styled.div>
+    <Connect(CollectionItem) item={{...}} />
+    <Connect(CollectionItem) item={{...}} />
+    <Connect(CollectionItem) item={{...}} />
+  </styled.div>
+</styled.div>"
+`;

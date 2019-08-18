@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutItem component should render CheckoutItem component 1`] = `
+"<styled.div>
+  <styled.div>
+    <img src=\\"www.testImage.com\\" alt=\\"item\\" />
+  </styled.div>
+  <styled.span>
+    hats
+  </styled.span>
+  <QuantityContainer>
+    <div onClick={[Function: onClick]}>
+      ❮
+    </div>
+    <span>
+      2
+    </span>
+    <div onClick={[Function: onClick]}>
+      ❯
+    </div>
+  </QuantityContainer>
+  <styled.span>
+    10
+  </styled.span>
+  <RemoveButtonContainer onClick={[Function: onClick]}>
+    ✕
+  </RemoveButtonContainer>
+</styled.div>"
+`;

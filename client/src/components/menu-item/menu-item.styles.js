@@ -8,6 +8,8 @@ export const BackgroundImageContainer = styled.div`
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
+BackgroundImageContainer.displayName = 'BackgroundImageContainer';
+
 export const ContentContainer = styled.div`
   height: 90px;
   padding: 0 25px;
@@ -70,3 +72,5 @@ export const MenuItemContainer = styled.div`
     height: 200px;
   }
 `;
+
+MenuItemContainer.displayName = 'MenuItemContainer';
