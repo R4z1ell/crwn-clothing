@@ -39,6 +39,19 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+export const getUserCartRef = async userId => {
+  const cartsRef = firestore.collection('carts').where('userId', '==', userId);
+  const snapShot = await cartsRef.get();
+
+  if (snapShot.empty) {
+    const cartDocRef = firestore.collection('carts').doc();
+    await cartDocRef.set({ userId, cartItems: [] });
+    return cartDocRef;
+  } else {
+    return snapShot.docs[0].ref;
+  }
+};
+
 /* Utility Function to create a new collection(that will take the name of the string we pass 
 in place of the 'collectionKey' argument when we use the 'addCollectionAndDocument' Function
 here below) and add inside it ALL the documents to Firestore */
